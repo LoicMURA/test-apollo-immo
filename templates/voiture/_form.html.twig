@@ -1,0 +1,19 @@
+{{ form_start(form) }}
+    {{ form_row(form.name,
+        {
+            'label' : 'Modèle de la voiture (5 caractères minimum)',
+            'attr' : {
+                'placeholder': 'Renault Scenic'
+            }
+        }
+    ) }}
+    {{ form_row(form.description,
+        {
+            'label' : 'Description de la voiture (10 caractères minimum)',
+            'attr' : {
+                'placeholder': 'La description de la voiture ...'
+            }
+        }
+    ) }}
+    <button id="js-add" class="btn btn-primary my-4" disabled>Ajouter la voiture</button>
+{{ form_end(form) }}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voiture index{% endblock %}
+
+{% block body %}
+    <main class="w-75 mx-auto">
+        <h1>Voiture index</h1>
+        {% include 'voiture/_form.html.twig' %}
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Modèle</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date de création  <i id="order-down" class="fas fa-caret-down"></i></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for voiture in voitures %}
+                <tr>
+                    <td><a href="{{ path('voiture_show', {'id': voiture.id}) }}">{{ voiture.name }}</a></td>
+                    <td>{{ voiture.description|u.truncate(150, '...') }}</td>
+                    <td>{{ voiture.createdAt|date('d/m/Y à H:i') }}</td>
+                    <td>{% include 'voiture/_delete_form.html.twig' %}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Pas de voitures trouvés</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+{% endblock %}
