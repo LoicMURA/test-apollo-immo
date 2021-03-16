@@ -15,4 +15,12 @@ class AppController extends AbstractController
     {
         return $this->redirectToRoute('voiture_index');
     }
+
+    /**
+     * @Route("/test", name="test")
+     */
+    public function test(): Response
+    {
+        return $this->render('base.html.twig');
+    }
 }
